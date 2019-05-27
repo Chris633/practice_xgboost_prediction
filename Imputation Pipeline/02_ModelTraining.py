@@ -12,8 +12,8 @@ type_list = ['missing',
 #   feature selection
 featureSetName = 'missing_3M'
 folder_name = 'XGBoost_' + featureSetName
-train_year = 2016
-train_month = 9
+train_year = 2017
+train_month = 6
 predict_level = ['phcode', 'FCC']  # update if necessary
 
 X_train_files = [

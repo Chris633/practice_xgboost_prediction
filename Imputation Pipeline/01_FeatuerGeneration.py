@@ -31,19 +31,19 @@ folder_name = modelName + '_' + featureSetName
 result_folder = modelName + '_' + resultName
 
 type = 'missing'   # model train type - missing, notMissing, combined
-isTrain = True   # True means extract
+isTrain = False   # True means extract
 periodicity = 'Q'   # 'Q' for quarterly, 'M' for monthly
 data_start_year = 2016   # feature start period - 3
-data_start_month = 12
+data_start_month = 9
 data_periods = 4
 
 feature_start_year = 2017
-feature_start_month = 9
+feature_start_month = 6
 feature_periods = 1
-missingShopList = [999901, 999902]   # shop missing in feature start period
-excludeShopList = [999901, 999902]
+missingShopList = [999901]   # shop missing in feature start period
+excludeShopList = [999901]
 
-readPrediction = True   # whether need to read prediction result and set to input data,
+readPrediction = False   # whether need to read prediction result and set to input data,
                          # set it to True when prepare train data for model train type - missing & combined
 readPred_year = 2017
 readPred_month = 6
@@ -87,7 +87,7 @@ type_dict = {
     'missing': missingShopList,
     'combined': list(set([x for x in train['phcode']])),
     'notMissing': [x for x in list(set([x for x in train['phcode']]))
-                   if x not in missingShopList]
+                   if x not in missingShopList and x != 10000]
 }
 
 featureCalculation(train, feature_periods, feature_start_year, feature_start_month, periodicity, isTrain,

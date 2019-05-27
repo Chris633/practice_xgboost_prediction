@@ -16,7 +16,8 @@ def constant_WHS_identification(df, start_date, periods, periodicity, missing):
     cons = tmp[mask].reset_index()
 
     missingDf = pd.DataFrame(missing)
-    missingDf.columns = ['phcode']
+    if missing:
+        missingDf.columns = ['phcode']
     phcode = pd.concat([cons[['phcode']], missingDf], axis=0)
 
     return phcode
@@ -43,7 +44,7 @@ def idCnstShop(train, start_year, start_month, periods, periodicity, missing):
     train = train.merge(constant, on='phcode', how='right')
 
     def changeShop(x, missing):
-        if x not in missing:
+        if x not in missing and x not in [999901, 999902, 999903, 999904]:
             return 10000
         else:
             return x

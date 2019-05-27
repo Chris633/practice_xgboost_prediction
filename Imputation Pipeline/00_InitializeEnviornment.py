@@ -73,7 +73,8 @@ def InitializeRawData(miss_dict, inputFile, outputFile):
     input_copy.drop(['year', 'month'], axis=1, inplace=True)
     input_copy.to_csv(outputFile, index=False)
     realY = pd.concat(realY_list, axis=0)
-    realY.drop(['year', 'month'], axis=1, inplace=True).to_csv(realInput, index=False)
+    realY.drop(['year', 'month'], axis=1, inplace=True)
+    realY.to_csv(realInput, index=False)
 
 # step 1, create folders
 # CreatingFolder(folder)
