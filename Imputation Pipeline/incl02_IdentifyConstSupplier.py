@@ -44,7 +44,7 @@ def idCnstShop(train, start_year, start_month, periods, periodicity, missing):
     train = train.merge(constant, on='phcode', how='right')
 
     def changeShop(x, missing):
-        if x not in missing and x not in [999901, 999902, 999903, 999904]:
+        if x not in missing and x not in [999901]:
             return 10000
         else:
             return x

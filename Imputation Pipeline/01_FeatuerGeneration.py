@@ -83,6 +83,15 @@ train = idCnstShop(train, data_start_year, data_start_month, data_periods, perio
 
 train = preprocess(train)
 
+# # for debug
+# train.to_csv("./test/train.csv", index=False)
+# price.to_csv("./test/price.csv", index=False)
+# train = pd.read_csv("./test/train.csv")
+# train['date'] = pd.to_datetime(train['date'])
+# train['date'] = train['date'].map(lambda x: x.date())
+# price = pd.read_csv("./test/price.csv")
+
+
 type_dict = {
     'missing': missingShopList,
     'combined': list(set([x for x in train['phcode']])),
